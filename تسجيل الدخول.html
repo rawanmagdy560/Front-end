@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نموذج تسجيل الدخول</title>
+  <style>
+    /* قاعدة عامة */
+    :root{
+      --bg:#f3f4f6;
+      --card:#ffffff;
+      --accent:#1473e6; /* لون الزر الأزرق */
+      --text:#1f2937;
+      --muted:#6b7280;
+      --radius:10px;
+      --shadow: 0 8px 24px rgba(15,23,42,0.08);
+      font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", "Almarai", sans-serif;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg,var(--bg), #eef2f7);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* مركز الصفحة */
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      box-sizing:border-box;
+    }
+
+    /* بطاقة النموذج */
+    .card{
+      width:420px;
+      max-width:94%;
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      padding:28px;
+      position:relative;
+    }
+
+    .title{
+      text-align:center;
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .form-row{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    label{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    input[type="text"],
+    input[type="password"]{
+      padding:12px 14px;
+      border-radius:8px;
+      border:1px solid #e5e7eb;
+      outline:none;
+      font-size:15px;
+      box-sizing:border-box;
+      transition:box-shadow .15s, border-color .15s;
+    }
+
+    input:focus{
+      border-color: #cfe3ff;
+      box-shadow:0 0 0 4px rgba(20,115,230,0.08);
+    }
+
+    .btn{
+      display:block;
+      width:100%;
+      padding:12px 14px;
+      border-radius:8px;
+      border:0;
+      background:var(--accent);
+      color:white;
+      font-weight:600;
+      font-size:15px;
+      cursor:pointer;
+      margin-top:6px;
+    }
+
+    .btn:active{ transform:translateY(1px); }
+
+    .footer-links{
+      text-align:center;
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    .footer-links a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .small-muted{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:8px;
+    }
+
+    /* أيقونة تشغيل كبيرة في الوسط (تشبه الصورة) */
+    .play-overlay{
+      position:absolute;
+      left:50%;
+      top:44%;
+      transform:translate(-50%,-50%);
+      width:120px;
+      height:120px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events:none; /* فقط للديكور */
+    }
+
+    .play-overlay::after{
+      content:"";
+      width:0; height:0;
+      border-left:22px solid white;
+      border-top:14px solid transparent;
+      border-bottom:14px solid transparent;
+      margin-right:6px; /* لأن الاتجاه RTL */
+    }
+
+    /* استجابة للشاشات الصغيرة */
+    @media (max-width:420px){
+      .play-overlay{ width:92px; height:92px; }
+      .play-overlay::after{ border-left:18px solid white; border-top:12px solid transparent; border-bottom:12px solid transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="region" aria-label="نموذج تسجيل الدخول">
+      <div class="title">تسجيل الدخول للنظام</div>
+         <form onsubmit="event.preventDefault(); alert('تم إرسال النموذج (تجريبي)');" autocomplete="off" novalidate>
+        <div class="form-row">
+          <label for="user">الاسم:</label>
+          <input id="user" name="user" type="text" placeholder="ادخل اسم المستخدم" />
+        </div>
+
+        <div class="form-row">
+          <label for="pass">الباسورد:</label>
+          <input id="pass" name="pass" type="password" placeholder="باسورد" />
+        </div>
+
+        <button class="btn" type="submit">دخول</button>
+
+        <div class="small-muted">نسيت كلمة المرور؟ <a href="#" style="color:var(--accent); text-decoration: none;">استرجاع</a></div>
+
+        <div class="footer-links">
+          
+          <a href="تسجيل الدخول.html">إنشاء حساب جديد</a>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
